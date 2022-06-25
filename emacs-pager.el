@@ -49,6 +49,7 @@
 (define-derived-mode emacs-pager-mode fundamental-mode "Pager"
   "Mode for viewing data paged by emacs-pager"
   (setq-local make-backup-files nil)
+  (replace-regexp #("." 1 2 (display #("^H" 0 2 (face escape-glyph)))) "" nil nil nil nil nil)
   (ansi-color-apply-on-region (goto-char (point-min))
                               (save-excursion
                                 (forward-line emacs-pager-max-line-coloring)
